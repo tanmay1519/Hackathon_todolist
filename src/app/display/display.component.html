@@ -1,0 +1,27 @@
+<!-- <input type="text" [(ngModel)]="task" > -->
+<input #task type="text" name="task" (keyup)="Change(task.value)" >
+<button (click)="run()" type="button" class="btn"  >Add-Task</button>
+<div class="line" >
+    <h3 class="inside">Index</h3>
+    <h3 class="inside">Task</h3>
+    <h3 class="inside">Action</h3>
+
+    >
+    <h3 class="inside">Status</h3>
+</div>
+    <div *ngFor="let line of taskList;let key =index;" >
+       <div class="line" *ngIf="key%2==0">
+        <h3   class="inside">{{line.name}}</h3>
+        <input  class="inside" #check type="checkbox" (change) = "checked(check.value,key)"  
+
+        >
+        <p  class="inside" >{{line.status}}</p>
+    </div>
+    <div class="line2" *ngIf="key%2==1">
+        <h3 class="inside" >{{line.name}}</h3>
+        <input class="inside"  #check type="checkbox" (change) = "checked(check.value,key)" 
+
+        >
+        <p  class="inside">{{line.status}}</p>
+    </div>
+    </div>
